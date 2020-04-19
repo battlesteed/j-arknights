@@ -1,6 +1,6 @@
 package io.kyouin.jarknights.aceship;
 
-import io.kyouin.jarknights.utils.AKConstants;
+import io.kyouin.jarknights.utils.GamedataLanguage;
 
 public class AceshipTag {
 
@@ -10,11 +10,11 @@ public class AceshipTag {
     private String tag_kr;
     private String type;
 
-    public String getTag(String lang) {
-        switch (lang) {
-            case AKConstants.LANG_CN: return tag_cn;
-            case AKConstants.LANG_JP: return tag_jp;
-            case AKConstants.LANG_KR: return tag_kr;
+    public String getTag(GamedataLanguage language) {
+        switch (language) {
+            case CN: return tag_cn;
+            case JP: return tag_jp;
+            case KR: return tag_kr;
             default: return tag_en;
         }
     }

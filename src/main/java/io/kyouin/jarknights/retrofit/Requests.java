@@ -1,10 +1,13 @@
 package io.kyouin.jarknights.retrofit;
 
 import com.google.gson.JsonElement;
+import io.kyouin.jarknights.aceship.AceshipOperatorName;
 import io.kyouin.jarknights.utils.AKConstants;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+
+import java.util.Map;
 
 public interface Requests {
 
@@ -41,7 +44,7 @@ public interface Requests {
     Call<JsonElement> getAceshipOperators();
 
     @GET(AKConstants.JSON_ACESHIP_CHAR)
-    Call<JsonElement> getAceshipOperatorNames();
+    Call<Map<String, AceshipOperatorName>> getAceshipOperatorNames();
 
     @GET(AKConstants.JSON_ACESHIP_ITEM)
     Call<JsonElement> getAceshipItems();

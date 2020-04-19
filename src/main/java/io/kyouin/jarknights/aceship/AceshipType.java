@@ -1,6 +1,6 @@
 package io.kyouin.jarknights.aceship;
 
-import io.kyouin.jarknights.utils.AKConstants;
+import io.kyouin.jarknights.utils.GamedataLanguage;
 
 public class AceshipType {
 
@@ -14,11 +14,11 @@ public class AceshipType {
         return type_data;
     }
 
-    public String getType(String lang) {
-        switch (lang) {
-            case AKConstants.LANG_CN: return type_cn;
-            case AKConstants.LANG_JP: return type_jp;
-            case AKConstants.LANG_KR: return type_kr;
+    public String getType(GamedataLanguage language) {
+        switch (language) {
+            case CN: return type_cn;
+            case JP: return type_jp;
+            case KR: return type_kr;
             default: return type_en;
         }
     }

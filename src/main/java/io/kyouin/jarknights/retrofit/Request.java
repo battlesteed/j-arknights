@@ -36,7 +36,6 @@ public class Request {
                 if (apiResponse != null) return apiResponse;
             } else if (response.errorBody() != null) System.out.println("Error: " + response.errorBody().string() + "; URL: " + call.request().url().url().getPath());
         } catch (IOException e) {
-            //TODO logger
             e.printStackTrace();
         }
 

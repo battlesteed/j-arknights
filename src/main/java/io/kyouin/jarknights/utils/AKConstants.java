@@ -34,9 +34,4 @@ public class AKConstants {
     public static final String  JSON_ACESHIP_TALENTS        = ACESHIP_DATA + "/ace/tl-talents.json";
     public static final String  JSON_ACESHIP_TYPE           = ACESHIP_DATA + "/tl-type.json";
     public static final String  JSON_ACESHIP_UNREADABLENAME = ACESHIP_DATA + "/tl-unreadablename.json";
-
-    public static final String  LANG_EN                     = "en_US";
-    public static final String  LANG_JP                     = "ja_JP";
-    public static final String  LANG_KR                     = "ko_KR";
-    public static final String  LANG_CN                     = "zh_CN";
 }

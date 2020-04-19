@@ -1,6 +1,6 @@
 package io.kyouin.jarknights.aceship;
 
-import io.kyouin.jarknights.utils.AKConstants;
+import io.kyouin.jarknights.utils.GamedataLanguage;
 
 import java.util.List;
 
@@ -22,20 +22,20 @@ public class AceshipOperator {
     private Boolean hidden;
     private Boolean globalHidden;
 
-    public String getName(String lang) {
-        switch (lang) {
-            case AKConstants.LANG_CN: return name_cn;
-            case AKConstants.LANG_JP: return name_jp;
-            case AKConstants.LANG_KR: return name_kr;
+    public String getName(GamedataLanguage language) {
+        switch (language) {
+            case CN: return name_cn;
+            case JP: return name_jp;
+            case KR: return name_kr;
             default: return name_en;
         }
     }
 
-    public String getCharacteristic(String lang) {
-        switch (lang) {
-            case AKConstants.LANG_CN: return characteristic_cn;
-            case AKConstants.LANG_JP: return characteristic_jp;
-            case AKConstants.LANG_KR: return characteristic_kr;
+    public String getCharacteristic(GamedataLanguage language) {
+        switch (language) {
+            case CN: return characteristic_cn;
+            case JP: return characteristic_jp;
+            case KR: return characteristic_kr;
             default: return characteristic_en;
         }
     }
