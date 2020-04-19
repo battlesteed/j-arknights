@@ -28,6 +28,7 @@ public class AKConstants {
 
     public static final String  JSON_ACESHIP_AKHR           = ACESHIP_DATA + "/tl-akhr.json";
     public static final String  JSON_ACESHIP_CHAR           = ACESHIP_DATA + "/tl-char.json";
+    public static final String  JSON_ACESHIP_ITEM           = ACESHIP_DATA + "/tl-item.json";
     public static final String  JSON_ACESHIP_SKILLS         = ACESHIP_DATA + "/ace/tl-skills.json";
     public static final String  JSON_ACESHIP_TAGS           = ACESHIP_DATA + "/tl-tags.json";
     public static final String  JSON_ACESHIP_TALENTS        = ACESHIP_DATA + "/ace/tl-talents.json";

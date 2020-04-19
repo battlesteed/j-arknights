@@ -43,6 +43,9 @@ public interface Requests {
     @GET(AKConstants.JSON_ACESHIP_CHAR)
     Call<JsonElement> getAceshipOperatorNames();
 
+    @GET(AKConstants.JSON_ACESHIP_ITEM)
+    Call<JsonElement> getAceshipItems();
+
     @GET(AKConstants.JSON_ACESHIP_SKILLS)
     Call<JsonElement> getAceshipSkills();
 
