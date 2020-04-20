@@ -4,7 +4,7 @@ import io.kyouin.jarknights.utils.GamedataLanguage;
 
 import java.util.List;
 
-public class AceshipOperator {
+public class AceshipOperator extends TranslatableObject {
 
     private String name_cn;
     private String name_en;
@@ -22,6 +22,7 @@ public class AceshipOperator {
     private Boolean hidden;
     private Boolean globalHidden;
 
+    @Override
     public String getName(GamedataLanguage language) {
         switch (language) {
             case CN: return name_cn;

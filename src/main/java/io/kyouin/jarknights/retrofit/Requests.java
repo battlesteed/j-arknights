@@ -1,12 +1,13 @@
 package io.kyouin.jarknights.retrofit;
 
 import com.google.gson.JsonElement;
-import io.kyouin.jarknights.aceship.AceshipOperatorName;
+import io.kyouin.jarknights.aceship.*;
 import io.kyouin.jarknights.utils.AKConstants;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
+import java.util.List;
 import java.util.Map;
 
 public interface Requests {
@@ -41,25 +42,25 @@ public interface Requests {
     // ACESHIP
 
     @GET(AKConstants.JSON_ACESHIP_AKHR)
-    Call<JsonElement> getAceshipOperators();
+    Call<List<AceshipOperator>> getAceshipOperators();
 
     @GET(AKConstants.JSON_ACESHIP_CHAR)
     Call<Map<String, AceshipOperatorName>> getAceshipOperatorNames();
 
     @GET(AKConstants.JSON_ACESHIP_ITEM)
-    Call<JsonElement> getAceshipItems();
+    Call<List<AceshipItem>> getAceshipItems();
 
     @GET(AKConstants.JSON_ACESHIP_SKILLS)
     Call<JsonElement> getAceshipSkills();
 
     @GET(AKConstants.JSON_ACESHIP_TAGS)
-    Call<JsonElement> getAceshipTags();
+    Call<List<AceshipTag>> getAceshipTags();
 
     @GET(AKConstants.JSON_ACESHIP_TALENTS)
     Call<JsonElement> getAceshipTalents();
 
     @GET(AKConstants.JSON_ACESHIP_TYPE)
-    Call<JsonElement> getAceshipTypes();
+    Call<List<AceshipType>> getAceshipTypes();
 
     @GET(AKConstants.JSON_ACESHIP_UNREADABLENAME)
     Call<JsonElement> getAceshipUnreadableNames();

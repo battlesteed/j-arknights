@@ -2,7 +2,7 @@ package io.kyouin.jarknights.aceship;
 
 import io.kyouin.jarknights.utils.GamedataLanguage;
 
-public class AceshipTag {
+public class AceshipTag extends TranslatableObject {
 
     private String tag_cn;
     private String tag_en;
@@ -10,7 +10,8 @@ public class AceshipTag {
     private String tag_kr;
     private String type;
 
-    public String getTag(GamedataLanguage language) {
+    @Override
+    public String getName(GamedataLanguage language) {
         switch (language) {
             case CN: return tag_cn;
             case JP: return tag_jp;
