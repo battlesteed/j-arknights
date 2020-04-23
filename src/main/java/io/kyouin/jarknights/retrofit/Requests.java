@@ -51,17 +51,17 @@ public interface Requests {
     Call<List<AceshipItem>> getAceshipItems();
 
     @GET(AKConstants.JSON_ACESHIP_SKILLS)
-    Call<JsonElement> getAceshipSkills();
+    Call<Map<String, AceshipSkill>> getAceshipSkills();
 
     @GET(AKConstants.JSON_ACESHIP_TAGS)
     Call<List<AceshipTag>> getAceshipTags();
 
     @GET(AKConstants.JSON_ACESHIP_TALENTS)
-    Call<JsonElement> getAceshipTalents();
+    Call<Map<String, List<List<AceshipTalent>>>> getAceshipTalents();
 
     @GET(AKConstants.JSON_ACESHIP_TYPE)
     Call<List<AceshipType>> getAceshipTypes();
 
     @GET(AKConstants.JSON_ACESHIP_UNREADABLENAME)
-    Call<JsonElement> getAceshipUnreadableNames();
+    Call<List<AceshipUnreadableName>> getAceshipUnreadableNames();
 }
