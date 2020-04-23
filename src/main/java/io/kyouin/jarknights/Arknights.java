@@ -1,9 +1,6 @@
 package io.kyouin.jarknights;
 
-import io.kyouin.jarknights.aceship.AceshipItem;
-import io.kyouin.jarknights.aceship.AceshipOperatorName;
-import io.kyouin.jarknights.aceship.AceshipTag;
-import io.kyouin.jarknights.aceship.AceshipType;
+import io.kyouin.jarknights.aceship.*;
 import io.kyouin.jarknights.retrofit.Request;
 import io.kyouin.jarknights.utils.GamedataLanguage;
 import io.kyouin.jarknights.utils.LanguageChecker;
@@ -14,6 +11,37 @@ import java.util.Map;
 public class Arknights {
 
     //TODO methods
+
+    public static String getReadableName(String name) {
+        List<AceshipUnreadableName> unreadableNames = Request.get(Request.METHODS.getAceshipUnreadableNames());
+
+        if (unreadableNames == null) return null;
+
+        AceshipUnreadableName toFind = unreadableNames.stream()
+                .filter(unreadableName -> unreadableName.getName().equalsIgnoreCase(name))
+                .findFirst()
+                .orElse(null);
+
+        if (toFind == null) return name;
+
+        return toFind.getNameEN();
+    }
+
+    public static AceshipSkill getSkills(String skillID) {
+        Map<String, AceshipSkill> skills = Request.get(Request.METHODS.getAceshipSkills());
+
+        if (skills == null) return null;
+
+        return skills.get(skillID);
+    }
+
+    public static List<List<AceshipTalent>> getTalents(String operatorID) {
+        Map<String, List<List<AceshipTalent>>> talents = Request.get(Request.METHODS.getAceshipTalents());
+
+        if (talents == null) return null;
+
+        return talents.get(operatorID);
+    }
 
     public static String getTranslatedOperatorName(String name, GamedataLanguage language) {
         Map<String, AceshipOperatorName> operatorNames = Request.get(Request.METHODS.getAceshipOperatorNames());
