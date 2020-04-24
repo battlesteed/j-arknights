@@ -7,10 +7,22 @@ import io.kyouin.jarknights.utils.LanguageChecker;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Arknights {
 
     //TODO methods
+
+    public static List<String> getOperatorNames(GamedataLanguage language) {
+        Map<String, AceshipOperatorName> operatorNames = Request.get(Request.METHODS.getAceshipOperatorNames());
+
+        if (operatorNames == null) return null;
+
+        return operatorNames.entrySet().stream()
+                .filter(entry -> !entry.getKey().contains(" ") && !entry.getValue().getName(language).isEmpty()) //fix for weird/empty entries
+                .map(entry -> entry.getValue().getName(language))
+                .collect(Collectors.toList());
+    }
 
     public static String getReadableName(String name) {
         List<AceshipUnreadableName> unreadableNames = Request.get(Request.METHODS.getAceshipUnreadableNames());
@@ -43,13 +55,13 @@ public class Arknights {
         return talents.get(operatorID);
     }
 
-    public static String getTranslatedOperatorName(String name, GamedataLanguage language) {
-        Map<String, AceshipOperatorName> operatorNames = Request.get(Request.METHODS.getAceshipOperatorNames());
+    public static String getTranslatedItem(String name, GamedataLanguage language) {
+        List<AceshipItem> items = Request.get(Request.METHODS.getAceshipItems());
 
-        if (operatorNames == null) return null;
+        if (items == null) return null;
 
-        AceshipOperatorName toFind = operatorNames.values().stream()
-                .filter(operator -> LanguageChecker.matchesTranslation(name, operator))
+        AceshipItem toFind = items.stream()
+                .filter(item -> LanguageChecker.matchesTranslation(name, item))
                 .findFirst()
                 .orElse(null);
 
@@ -58,13 +70,13 @@ public class Arknights {
         return toFind.getName(language);
     }
 
-    public static String getTranslatedItem(String name, GamedataLanguage language) {
-        List<AceshipItem> items = Request.get(Request.METHODS.getAceshipItems());
+    public static String getTranslatedOperatorName(String name, GamedataLanguage language) {
+        Map<String, AceshipOperatorName> operatorNames = Request.get(Request.METHODS.getAceshipOperatorNames());
 
-        if (items == null) return null;
+        if (operatorNames == null) return null;
 
-        AceshipItem toFind = items.stream()
-                .filter(item -> LanguageChecker.matchesTranslation(name, item))
+        AceshipOperatorName toFind = operatorNames.values().stream()
+                .filter(operator -> LanguageChecker.matchesTranslation(name, operator))
                 .findFirst()
                 .orElse(null);
 
